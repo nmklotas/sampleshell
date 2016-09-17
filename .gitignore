@@ -4,3 +4,6 @@
 
 /.vs/SampleModule/v14/.suo
 /src/Profile/Profile.pssproj.vspscc
+/.vscode
+/src/SampleModule/bin/Release
+/src/SampleModule/SampleModule.psd1

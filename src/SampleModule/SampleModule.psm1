@@ -1,7 +1,7 @@
 #Stop execution on first unhandled exception
 $ErrorActionPreference = "Stop"
 
-Import-Module $PSScriptRoot\Private\Helpers.psm1 -DisableNameChecking
+Import-Module -Name "$PSScriptRoot\Private\Helpers.psm1" -DisableNameChecking
 
 function New-SqlServer-Db
 {
@@ -21,7 +21,7 @@ function New-SqlServer-Db
 		[string]$database,
 		[string]$instance=$(Get-Setting sqlServerInstance)
 	)
-	
+
 	$srv = New-Object Microsoft.SqlServer.Management.Smo.Server($instance)
 	$db = $srv.Databases[$database]
 	if($db)
@@ -37,4 +37,3 @@ function New-SqlServer-Db
 	$db.Create()
 	Write-Host Database $database created
 }
-

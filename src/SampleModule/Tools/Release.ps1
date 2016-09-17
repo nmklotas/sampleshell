@@ -45,9 +45,8 @@ New-ModuleManifest -Path $manifestFile `
 	-ScriptsToProcess 'Private\Initialize.ps1' `
 	-NestedModules $nestedModules `
 	-Tags 'SampleTag1', 'SampleTag2' `
-	-CmdletsToExport 'New-SqlServer-Db' `
     -FileList @($nestedModules + $innerFiles) `
-	-FunctionsToExport 'Sample-Function' ` #We export function from Public folder
+	-FunctionsToExport 'New-SqlServer-Db', 'Sample-Function' `
 	#-RequiredAssemblies 'Microsoft.SqlServer.Smo' 
 
 if(!(Test-ModuleManifest -Path $manifestFile))

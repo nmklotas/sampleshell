@@ -22,11 +22,11 @@ function Get-Setting {
 	   $key
 	)
 
-	$variableValue = Get-Variable -Name "SG_$key" -ErrorAction Ignore
+	$variableValue = Get-Variable -Name "g$key" -ErrorAction Ignore
 	if(!$variableValue)
 	{
 		$profileDestination = Join-Path ([Environment]::GetFolderPath("MyDocuments")) "WindowsPowershell\Profile.ps1"
-		throw [System.ArgumentNullException] "SG_$key value is not set make sure that profile is installed in $profileDestination"
+		throw [System.ArgumentNullException] "g$key value is not set make sure that profile is installed in $profileDestination"
 	}
 
 	return $variableValue.Value
@@ -48,7 +48,7 @@ function Invoke-Python
 	param(
 		[Parameter(Mandatory)]
 		[string]$scriptFile,
-		[Parameter(Position=1)]
+		[Parameter(Position =1 )]
 		[string]$argument
 	)
 
@@ -73,7 +73,7 @@ function Invoke-Python
 	Push-Location $PSScriptRoot
 
 	#output will be lost if there's no -NoNewWindow
-	$python = Start-Process -FilePath $python -ArgumentList @($scriptFile,$argument) -Wait `
+	$python = Start-Process -FilePath $python -ArgumentList @($scriptFile, $argument) -Wait `
 		-NoNewWindow -PassThru
 
 	Pop-Location

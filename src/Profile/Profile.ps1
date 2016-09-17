@@ -1,7 +1,6 @@
 ﻿<#
 	Profile.ps1
 
-	This Powershell profile used to have all the configuration needed for SampleModule
 	If this script is placed in c:\users\[user]\windowspowershell\
 	it will be executed when Powershell loads for the current user and all Powershell hosts (Powershell.exe, Powershell ISE etc..)
 	
@@ -14,7 +13,7 @@ $ErrorActionPreference = "Stop"
 
 #region Configuration for SampleModule module
 
-Set-Variable -Name SG_SqlServerInstance -Value 'localhost' -Scope global
+Set-Variable -Name gSqlServerInstance -Value 'localhost' -Scope global
 
 #endregion
 
